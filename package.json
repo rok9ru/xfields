@@ -1,6 +1,6 @@
 {
   "name": "xfields",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "More custom fields for jsgrid",
   "main": "index.js",
   "directories": {
@@ -40,5 +40,8 @@
     "grunt-contrib-qunit": "^7.0.1",
     "grunt-contrib-uglify": "^5.2.2",
     "grunt-image-embed": "^0.3.3"
+  },
+  "optionalDependencies": {
+    "jsoneditor": "*"
   }
 }
