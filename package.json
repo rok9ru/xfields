@@ -1,0 +1,44 @@
+{
+  "name": "xfields",
+  "version": "1.0.0",
+  "description": "More custom fields for jsgrid",
+  "main": "index.js",
+  "directories": {
+    "example": "example",
+    "src": "src",
+    "dist": "dist"
+  },
+  "scripts": {
+    "build": "grunt",
+    "prepublish": "npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rok9ru/xfields.git"
+  },
+  "keywords": [
+    "jsgrid",
+    "jquery",
+    "fields"
+  ],
+  "author": "rok_9",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rok9ru/xfields/issues"
+  },
+  "homepage": "https://github.com/rok9ru/xfields#readme",
+  "dependencies": {
+    "jquery": "^3.7.0",
+    "jsgrid": "^1.5.3"
+  },
+  "devDependencies": {
+    "grunt": "^1.6.1",
+    "grunt-contrib-concat": "~2.1.0",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-cssmin": "^5.0.0",
+    "grunt-contrib-qunit": "^7.0.1",
+    "grunt-contrib-uglify": "^5.2.2",
+    "grunt-image-embed": "^0.3.3"
+  }
+}
