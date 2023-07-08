@@ -10,7 +10,7 @@
 
         options = options || {};
 
-        options.closeText = options.closeText || 'Закрыть';
+        options.closeText = options.closeText || 'Close';
         options.heading = options.heading || '';
 
         options.styles = options.styles || '.jsGridpopupBasicOverlay {' +
