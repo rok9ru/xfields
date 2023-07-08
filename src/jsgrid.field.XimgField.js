@@ -24,7 +24,7 @@
 
             var editControl = this.editControl = $('<input type="text" value="' + (value || '') + '">');
             if (fm) {
-                return $('<button class="jsgrid-button jsgrid-imgField-button">'+this.editButtonText+'</button>').click(function () {
+                return $('<button class="jsgrid-imgField-button">' + this.editButtonText + '</button>').click(function () {
                     fm(editControl);
                 });
             }
