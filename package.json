@@ -1,6 +1,6 @@
 {
   "name": "xfields",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "More custom fields for jsgrid",
   "main": "index.js",
   "directories": {

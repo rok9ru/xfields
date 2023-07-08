@@ -9,9 +9,9 @@
         fm_callback: null,
         editButtonText: 'Open FM',
 
-        itemTemplate: function (value, item) {
+        itemTemplate: function (value) {
             var img = $('<img class="jsgrid-img" src="">');
-            img.attr("src", value);
+            img.attr("src", value || '');
             img.css('max-height', '50px');
             img.css('max-width', '50px');
 
@@ -22,7 +22,7 @@
                 return this.itemTemplate.apply(this, arguments);
             var fm = this.fm_callback;
 
-            var editControl = this.editControl = $('<input type="text" value="' + value + '">');
+            var editControl = this.editControl = $('<input type="text" value="' + (value || '') + '">');
             if (fm) {
                 return $('<button class="jsgrid-button jsgrid-imgField-button">'+this.editButtonText+'</button>').click(function () {
                     fm(editControl);

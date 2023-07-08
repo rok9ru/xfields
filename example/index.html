@@ -11,9 +11,8 @@
 <body>
 
 
-
-
 <div id="jsGrid"></div>
+
 <script
         src="https://code.jquery.com/jquery-3.6.1.min.js"
         integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
@@ -29,32 +28,41 @@
 <script src="../src/jsgrid.field.Xtextarea.js"></script>
 <script src="../src/jsgrid.field.Xjsoneditor.js"></script>
 <script src="../src/jsgrid.field.XimgField.js"></script>
+<script src="../src/jsgrid.field.XRowSelectField.js"></script>
 <script>
-    $(function() {
+    $(function () {
 
         $("#jsGrid").jsGrid({
-            height: "90%",
             width: "100%",
-
             sorting: true,
             paging: true,
-            editing:true,
-            filtering:true,
-
-            data: db.clients,
+            editing: true,
+            filtering: true,
+            autoload: true,
+            controller: db,
 
             fields: [
-                { name: "Name", type: "text", width: 150 },
-                { name: "Age", type: "number", width: 50 },
-                { name: "Address", type: "Xtextarea", width: 200 },
-                { name: "Country", type: "Xselect", items: db.countries, valueField: "Id", textField: "Name" },
-                { name: "Married", type: "Xcheckbox", title: "Is Married" },
-                { name: "Json", type: "Xjsoneditor", title: "Json" },
-                { name: "img", type: "XimgField", title: "Img" }
+                {name: "Name", type: "text", width: 150},
+                {name: "Age", type: "number", width: 50},
+                {name: "Address", type: "Xtextarea", width: 200},
+                {name: "Country", type: "Xselect", items: db.countries, valueField: "Id", textField: "Name"},
+                {name: "Married", type: "Xcheckbox", title: "Is Married"},
+                {name: "Json", type: "Xjsoneditor", title: "Json"},
+                {name: "img", type: "XimgField", title: "Img", width: 30},
+                {
+                    type: "XRowSelectField", width: 10,
+                    selectedItemsAction: function (selectedItems) {
+                        console.log("Selected:", selectedItems);
+                        //To unselect all call this.unselectAll();
+                    },
+                    buttonText: "Some action",
+                },
+
+                {type: "control"}
             ]
         });
-
     });
+
 </script>
 </body>
 </html>

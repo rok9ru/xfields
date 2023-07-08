@@ -12,24 +12,30 @@
             });
         },
 
-        insertItem: function(insertingClient) {
+        insertItem: function (insertingClient) {
             this.clients.push(insertingClient);
         },
 
-        updateItem: function(updatingClient) { },
+        updateItem: function (updatingClient) {
+        },
 
-        deleteItem: function(deletingClient) {
+        deleteItem: function (deletingClient) {
             var clientIndex = $.inArray(deletingClient, this.clients);
             this.clients.splice(clientIndex, 1);
-        }
+        },
 
+        deleteItems: function (deletingClients) {
+            var that = this;
+            deletingClients.forEach(function (item) {
+                that.deleteItem(item);
+            })
+        }
     };
 
     window.db = db;
 
 
     db.countries = [
-        { Name: "", Id: 0 },
         { Name: "United States", Id: 1 },
         { Name: "Canada", Id: 2 },
         { Name: "United Kingdom", Id: 3 },
