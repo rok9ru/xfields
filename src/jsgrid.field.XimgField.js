@@ -2,7 +2,7 @@
 
 
     var XimgField = function (config) {
-        jsGrid.Field.call(this, config);
+        jsGrid.TextField.call(this, config);
     };
 
     XimgField.prototype = new jsGrid.TextField({

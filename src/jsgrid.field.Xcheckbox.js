@@ -2,7 +2,7 @@
 
 
     var Xcheckbox = function (config) {
-        jsGrid.Field.call(this, config);
+        jsGrid.CheckboxField.call(this, config);
     };
 
     Xcheckbox.prototype = new jsGrid.CheckboxField({

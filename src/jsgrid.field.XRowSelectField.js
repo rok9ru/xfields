@@ -1,13 +1,13 @@
 (function (jsGrid, $) {
 
     var XRowSelectField = function (config) {
+        this.selectedItems = [];
         jsGrid.Field.call(this, config);
     };
 
     XRowSelectField.prototype = new jsGrid.Field({
         filtering: false,
         deleteItemByItem: false,
-        selectedItems: [],
         buttonText: "",
         selectedItemsAction: function (selectedItems) {
 

@@ -8,6 +8,7 @@
                     && (!filter.Age || client.Age === filter.Age)
                     && (!filter.Address || client.Address.indexOf(filter.Address) > -1)
                     && (!filter.Country || client.Country === filter.Country)
+                    && (!filter.Religion || client.Religion === filter.Religion)
                     && (filter.Married === undefined || client.Married === filter.Married);
             });
         },
@@ -36,13 +37,23 @@
 
 
     db.countries = [
-        { Name: "United States", Id: 1 },
-        { Name: "Canada", Id: 2 },
-        { Name: "United Kingdom", Id: 3 },
-        { Name: "France", Id: 4 },
-        { Name: "Brazil", Id: 5 },
-        { Name: "China", Id: 6 },
-        { Name: "Russia", Id: 7 }
+        {Name: "United States", Id: 1},
+        {Name: "Canada", Id: 2},
+        {Name: "United Kingdom", Id: 3},
+        {Name: "France", Id: 4},
+        {Name: "Brazil", Id: 5},
+        {Name: "China", Id: 6},
+        {Name: "Russia", Id: 7}
+    ];
+
+    db.religion = [
+        {Name: "Buddhism", Id: 1},
+        {Name: "Islam", Id: 2},
+        {Name: "Judaism", Id: 3},
+        {Name: "Catholicism", Id: 4},
+        {Name: "Christianity", Id: 5},
+        {Name: "Other", Id: 6},
+        {Name: "None", Id: 7}
     ];
 
     db.clients = [
@@ -52,8 +63,9 @@
             "Country": 6,
             "Address": "Ap #897-1459 Quam Avenue",
             "Married": false,
-            "Json":"{\"dsf\":\"sdf\",\"t\": 1}",
-            "img":"https://i.imgur.com/cEwvgrW.jpeg"
+            "Json": "{\"dsf\":\"sdf\",\"t\": 5}",
+            "img": "https://i.imgur.com/cEwvgrW.jpeg",
+            "Religion": 2
         },
         {
             "Name": "Connor Johnston",
@@ -61,36 +73,49 @@
             "Country": 7,
             "Address": "Ap #370-4647 Dis Av.",
             "Married": false,
-            "Json":"{\"dsf\":\"sdf\",\"t\": 1}",
-            "img":"https://i.imgur.com/cEwvgrW.jpeg"
+            "Json": "{\"dsf\":\"ttt\",\"t\": 1}",
+            "img": "https://i.imgur.com/cEwvgrW.jpeg",
+            "Religion": 1
         },
         {
             "Name": "Lacey Hess",
             "Age": 29,
             "Country": 7,
             "Address": "Ap #365-8835 Integer St.",
-            "Married": false
+            "Married": false,
+            "Json": "{\"dsf\":\"ttt\",\"t\": 1}",
+            "img": "https://i.imgur.com/cEwvgrW.jpeg",
+            "Religion": 4
         },
         {
             "Name": "Timothy Henson",
             "Age": 78,
             "Country": 1,
             "Address": "911-5143 Luctus Ave",
-            "Married": false
+            "Married": false,
+            "Json": "{\"dsf\":\"ttt\",\"t\": 1}",
+            "img": "https://i.imgur.com/cEwvgrW.jpeg",
+            "Religion": 3
         },
         {
             "Name": "Ramona Benton",
             "Age": 43,
             "Country": 5,
             "Address": "Ap #614-689 Vehicula Street",
-            "Married": true
+            "Married": true,
+            "Json": "{\"dsf\":\"tffft\",\"t\": 45312}",
+            "img": "https://i.imgur.com/cEwvgrW.jpeg",
+            "Religion": 6
         },
         {
             "Name": "Ezra Tillman",
             "Age": 51,
             "Country": 1,
             "Address": "P.O. Box 738, 7583 Quisque St.",
-            "Married": true
+            "Married": true,
+            "Json": "{\"dsf\":\"tffft\",\"t\": 45312}",
+            "img": "https://i.imgur.com/cEwvgrW.jpeg",
+            "Religion": 7
         },
         {
             "Name": "Dante Carter",

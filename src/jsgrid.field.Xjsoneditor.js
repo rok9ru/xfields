@@ -1,7 +1,7 @@
 (function (jsGrid, $) {
 
     var Xjsoneditor = function (config) {
-        jsGrid.Field.call(this, config);
+        jsGrid.TextAreaField.call(this, config);
     };
 
     Xjsoneditor.prototype = new jsGrid.TextAreaField({

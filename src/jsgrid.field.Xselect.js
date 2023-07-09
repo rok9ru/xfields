@@ -2,7 +2,8 @@
 
 
     var Xselect = function (config) {
-        jsGrid.Field.call(this, config);
+        this.items = [];
+        jsGrid.SelectField.call(this, config);
     };
 
     Xselect.prototype = new jsGrid.SelectField({

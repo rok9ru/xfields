@@ -2,7 +2,7 @@
 
 
     var Xtextarea = function (config) {
-        jsGrid.Field.call(this, config);
+        jsGrid.TextAreaField.call(this, config);
     };
 
     Xtextarea.prototype = new jsGrid.TextAreaField({
