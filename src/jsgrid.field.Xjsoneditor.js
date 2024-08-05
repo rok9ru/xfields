@@ -46,7 +46,7 @@
         itemTemplate: function (value, item) {
             var f = this;
 
-            return $("<button>Редактор</button>").click(function () {
+            return $("<button>" + f.editText + "</button>").click(function () {
                 var editor = f._createJsonEditor(value);
                 f._doModal(editor.container, {
                     onClose: function () {
