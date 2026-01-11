@@ -46,15 +46,15 @@
         {Name: "Russia", Id: 7}
     ];
 
-    db.religion = [
-        {Name: "Buddhism", Id: 1},
-        {Name: "Islam", Id: 2},
-        {Name: "Judaism", Id: 3},
-        {Name: "Catholicism", Id: 4},
-        {Name: "Christianity", Id: 5},
-        {Name: "Other", Id: 6},
-        {Name: "None", Id: 7}
-    ];
+    db.religion = {
+        '_buddhism': 'Buddhism',
+        '_islam': 'Islam',
+        '_judaism': 'Judaism',
+        '_catholicism': 'Catholicism',
+        '_christianity': 'Christianity',
+        '_other': 'Other',
+        '_none': 'None',
+    }
 
     db.clients = [
         {
@@ -65,7 +65,8 @@
             "Married": false,
             "Json": "{\"dsf\":\"sdf\",\"t\": 5}",
             "img": "https://i.imgur.com/cEwvgrW.jpeg",
-            "Religion": 2
+            "date": "2025-01-01 12:35:08",
+            "Religion": '_buddhism'
         },
         {
             "Name": "Connor Johnston",
@@ -75,7 +76,8 @@
             "Married": false,
             "Json": "{\"dsf\":\"ttt\",\"t\": 1}",
             "img": "https://i.imgur.com/cEwvgrW.jpeg",
-            "Religion": 1
+            "date": "2025-05-01 10:35:01",
+            "Religion": '_buddhism'
         },
         {
             "Name": "Lacey Hess",
@@ -85,7 +87,8 @@
             "Married": false,
             "Json": "{\"dsf\":\"ttt\",\"t\": 1}",
             "img": "https://i.imgur.com/cEwvgrW.jpeg",
-            "Religion": 4
+            "date": "2025-01-05 15:55:08",
+            "Religion": '_catholicism'
         },
         {
             "Name": "Timothy Henson",
@@ -95,7 +98,8 @@
             "Married": false,
             "Json": "{\"dsf\":\"ttt\",\"t\": 1}",
             "img": "https://i.imgur.com/cEwvgrW.jpeg",
-            "Religion": 3
+            "date": "2024-02-01 15:20:08",
+            "Religion": '_islam'
         },
         {
             "Name": "Ramona Benton",
@@ -105,7 +109,8 @@
             "Married": true,
             "Json": "{\"dsf\":\"tffft\",\"t\": 45312}",
             "img": "https://i.imgur.com/cEwvgrW.jpeg",
-            "Religion": 6
+            "date": "2024-04-09 09:34:08",
+            "Religion": '_other'
         },
         {
             "Name": "Ezra Tillman",
@@ -115,7 +120,8 @@
             "Married": true,
             "Json": "{\"dsf\":\"tffft\",\"t\": 45312}",
             "img": "https://i.imgur.com/cEwvgrW.jpeg",
-            "Religion": 7
+            "date": "2024-11-11 11:44:01",
+            "Religion": '_none'
         },
         {
             "Name": "Dante Carter",

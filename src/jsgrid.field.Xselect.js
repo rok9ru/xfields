@@ -11,15 +11,26 @@
         filterTemplate: function () {
             if (!this.filtering)
                 return "";
-            var data = this.items.slice(0);
-            if (this.pseudoElement) {
-                data.unshift(this.pseudoElement);
-            } else {
-                var d = {};
-                d[this.textField] = '';
-                d[this.valueField] = null;
-                data.unshift(d);
+            var data;
+            if (Array.isArray(this.items)) {
+                data = this.items.slice(0);
+                if (this.pseudoElement) {
+                    data.unshift(this.pseudoElement);
+                } else {
+                    var d = {};
+                    d[this.textField] = '';
+                    d[this.valueField] = null;
+                    data.unshift(d);
+                }
+            } else if (typeof this.items === 'object') {
+                data = Object.assign({}, this.items);
+                if ((typeof this.pseudoElement === 'object') && this.pseudoElement) {
+                    data = Object.assign({}, data, this.pseudoElement);
+                } else {
+                    data = Object.assign({}, {' ': null}, data);
+                }
             }
+
             var grid = this._grid,
                 $result = this.filterControl = this._createSelect(data);
 

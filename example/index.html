@@ -29,6 +29,7 @@
 <script src="../src/jsgrid.field.Xjsoneditor.js"></script>
 <script src="../src/jsgrid.field.XimgField.js"></script>
 <script src="../src/jsgrid.field.XRowSelectField.js"></script>
+<script src="../src/jsgrid.field.XDateTimeField.js"></script>
 <script>
     $(function () {
 
@@ -45,11 +46,14 @@
                 {name: "Name", type: "text", width: 150},
                 {name: "Age", type: "number", width: 50},
                 {name: "Address", type: "Xtextarea", width: 200},
-                {name: "Country", type: "Xselect", items: db.countries, valueField: "Id", textField: "Name"},
-                {name: "Religion", type: "Xselect", items: db.religion, valueField: "Id", textField: "Name"},
+                {name: "Country", type: "Xselect", items: db.countries, valueField: "Id", textField: "Name"},//[{'key' => 'key', 'value'=>'value'}, {'key' => 'key2', 'value'=>'value2'}]
+                {name: "Religion", type: "Xselect", items: db.religion},// {'Key'=>'value', 'Key2'=>'value2'}
+
                 {name: "Married", type: "Xcheckbox", title: "Is Married"},
                 {name: "Json", type: "Xjsoneditor", title: "Json"},
                 {name: "img", type: "XimgField", title: "Img", width: 30},
+                {name: "date", type: "XDateTimeField", title: "DateTime", width: 30},
+
                 {
                     type: "XRowSelectField", width: 10,
                     selectedItemsAction: function (selectedItems) {
