@@ -27,7 +27,7 @@
                 if ((typeof this.pseudoElement === 'object') && this.pseudoElement) {
                     data = Object.assign({}, data, this.pseudoElement);
                 } else {
-                    data = Object.assign({}, {' ': null}, data);
+                    data = Object.assign({}, {'': null}, data);
                 }
             }
 
