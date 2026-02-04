@@ -7,6 +7,9 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.css" rel="stylesheet"/>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid-theme.css" rel="stylesheet"/>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/jsoneditor/9.10.2/jsoneditor.min.css" rel="stylesheet"/>
+    <style>
+
+    </style>
 </head>
 <body>
 
@@ -21,7 +24,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jsoneditor/9.10.2/jsoneditor.min.js"></script>
 
 <script src="../src/lib/jsgrid.popup.basic.js"></script>
-
+<script src="../src/lib/jsGridSummaryPlugin.js"></script>
 
 <script src="../src/jsgrid.field.Xcheckbox.js"></script>
 <script src="../src/jsgrid.field.Xselect.js"></script>
@@ -41,10 +44,21 @@
             filtering: true,
             autoload: true,
             controller: db,
-
             fields: [
                 {name: "Name", type: "text", width: 150},
-                {name: "Age", type: "number", width: 50},
+                {
+                    name: "Age", type: "number", width: 50,
+                    /*  summary: function(displayData, allData) {
+                          var total = allData.reduce((s, i) => s + (parseFloat(i.Age) || 0), 0);
+                          return "Всего найдено: " + total;
+                      }*/
+                    summary: function (data) {
+                        if (!data.length) return "—";
+                        var n = this.name;
+                        var total = data.reduce((s, i) => s + parseFloat(i[n] || 0), 0);
+                        return "Sum: " + total;
+                    }
+                },
                 {name: "Address", type: "Xtextarea", width: 200},
                 {name: "Country", type: "Xselect", items: db.countries, valueField: "Id", textField: "Name"},//[{'key' => 'key', 'value'=>'value'}, {'key' => 'key2', 'value'=>'value2'}]
                 {name: "Religion", type: "Xselect", items: db.religion},// {'Key'=>'value', 'Key2'=>'value2'}
