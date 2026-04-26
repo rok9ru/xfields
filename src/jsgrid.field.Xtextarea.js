@@ -13,7 +13,7 @@
                 return $("<div>").text(value);
             }
             var str = value.slice(0, this.maxShowSymbols);
-            var div = $("<div>").text(str + ' ...').click(function () {
+            var div = $("<div>").text(str + ' ...').one("click",function () {
                 div.text(value);
                 return false;
             });
