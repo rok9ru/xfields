@@ -1,46 +1,30 @@
 ﻿module.exports = function (grunt) {
-
-    // Project configuration.
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
-        uglify: {
-            options: {
-                banner: '/*! <%= pkg.name %> */\n',
-            },
-            build: {
-                files: [{
-                    expand: true,
-                    cwd: 'src',
-                    src: ['**/*.js'],
-                    dest: 'dist/fields/',
-                    rename: function (dest, src) {
-                        return dest + src.replace('.js', '.min.js');
-                    }
-                }]
-            }
-
-        },
+        clean: ["dist/"],
         concat: {
             options: {
-                stripBanners: {
-                    options: {
-                        block: true
-                    }
-                },
-                banner: '/*! <%= pkg.name %> - v<%= pkg.version %> */',
+                banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - <%= grunt.template.today("yyyy-mm-dd") %> */\n',
             },
             dist: {
-                src: 'dist/fields/**/*.js',
-                dest: 'dist/<%= pkg.name %>.all.min.js',
+                src: ['src/**/*.js'],
+                dest: 'dist/<%= pkg.name %>.js',
+            }
+        },
+        uglify: {
+            options: {
+                banner: '/*! <%= pkg.name %> <%= pkg.version %> */\n',
+                sourceMap: true
+            },
+            build: {
+                files: {
+                    'dist/<%= pkg.name %>.min.js': ['<%= concat.dist.dest %>']
+                }
             }
         }
     });
-
-    // Load the plugin that provides the "uglify" task.
-    grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-concat');
-    // Default task(s).
-    grunt.registerTask('default', ['uglify', 'concat']);
-
-}
-;
+    grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.registerTask('default', ['clean', 'concat', 'uglify']);
+};

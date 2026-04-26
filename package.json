@@ -10,7 +10,7 @@
   },
   "scripts": {
     "build": "grunt",
-    "prepublish": "npm run build",
+    "prepublishOnly": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -23,12 +23,12 @@
     "fields"
   ],
   "author": "rok_9",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/rok9ru/xfields/issues"
   },
   "homepage": "https://github.com/rok9ru/xfields#readme",
-  "dependencies": {
+  "peerDependencies": {
     "jquery": "^3.0.0",
     "jsgrid": "^1.5.3"
   },
@@ -42,5 +42,10 @@
     "grunt-image-embed": "^0.3.3"
   },
   "optionalDependencies": {
-  }
+    "select2": "4.1.0-rc.0"
+  },
+  "files": [
+    "dist",
+    "src"
+  ]
 }
