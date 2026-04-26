@@ -8,6 +8,7 @@
 
     Xselect.prototype = new jsGrid.SelectField({
         pseudoElement: null,//pseudoElement that will be unsifted to start of select data in filters
+        select2: null,
         filterTemplate: function () {
             if (!this.filtering)
                 return "";
@@ -61,6 +62,14 @@
             });
 
             $result.prop("disabled", !!this.readOnly);
+
+            if(this.select2){
+                this.select2.width = '100%';
+                var s2 = this.select2;
+                setTimeout(function() {
+                    $result.select2(s2);
+                }, 0);
+            }
 
             return $result;
         }
