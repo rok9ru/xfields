@@ -7,6 +7,7 @@
         css: "date-field",            // redefine general property 'css'
         align: "center",              // redefine general property 'align'
         datePickerType: "datetime-local",
+        dateRange: false,
         sorter: function (date1, date2) {
             return new Date(date1) - new Date(date2);
         },
@@ -16,14 +17,49 @@
                 return "";
 
 
-            var grid = this._grid,
-                $result = this.filterControl = this._createPiker();
+            var grid = this._grid;
+            var $result = $();
+            if(this.dateRange){
+                var $container = $("<div class='jsgrid-date-range-wrapper'>");
 
-            if (this.autosearch) {
-                $result.on("change", function (e) {
-                    grid.search();
+                var $startInput = $("<input>", {
+                    "class": "jsgrid-date-picker jsgrid-date-start",
+                    "type": this.datePickerType,
+                    "title": "Period date start"
                 });
+
+                var $endInput = $("<input>", {
+                    "class": "jsgrid-date-picker jsgrid-date-end",
+                    "type": this.datePickerType,
+                    "title": "Period date end"
+                });
+
+                $container.val = function () {
+                    var fromVal = $startInput.val();
+                    var toVal = $endInput.val();
+
+                    return {
+                        from: fromVal,
+                        to: toVal
+                    };
+                };
+
+                $result = this.filterControl = $container.append($startInput).append($endInput);
+
+                if (this.autosearch) {
+                    $result.on("change", ".jsgrid-date-picker", function (e) {
+                        grid.search();
+                    });
+                }
+            }else{
+                $result = this.filterControl = this._createPiker();
+                if (this.autosearch) {
+                    $result.on("change", function (e) {
+                        grid.search();
+                    });
+                }
             }
+
             return $result;
         },
 
@@ -61,7 +97,7 @@
             return this._editPicker.val();
         },
         _createPiker: function () {
-            return $("<input class='date-picker' >").attr("type", this.datePickerType);
+            return $("<input class='date-picker'>").attr("type", this.datePickerType);
         }
     });
 
