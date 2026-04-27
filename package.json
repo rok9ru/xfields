@@ -33,11 +33,12 @@
     "jsgrid": "^1.5.3"
   },
   "devDependencies": {
-    "grunt": "^1.6.1",
+    "grunt": "^1.6.2",
+    "grunt-contrib-clean": "^2.0.1",
     "grunt-contrib-concat": "~2.1.0",
     "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-cssmin": "^5.0.0",
-    "grunt-contrib-qunit": "^7.0.1",
+    "grunt-contrib-qunit": "^10.2.0",
     "grunt-contrib-uglify": "^5.2.2",
     "grunt-image-embed": "^0.3.3"
   },
