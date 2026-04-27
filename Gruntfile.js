@@ -16,15 +16,28 @@
                 banner: '/*! <%= pkg.name %> <%= pkg.version %> */\n',
                 sourceMap: true
             },
-            build: {
+            dist: {
                 files: {
                     'dist/<%= pkg.name %>.min.js': ['<%= concat.dist.dest %>']
                 }
+            },
+            individual: {
+                files: [{
+                    expand: true,
+                    cwd: 'src/',
+                    src: ['**/*.js'],
+                    dest: 'dist/fields/',
+                    ext: '.min.js',
+                    extDot: 'last'
+                }]
             }
         }
     });
+
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.registerTask('default', ['clean', 'concat', 'uglify']);
+
+    // Запускаем всё по очереди
+    grunt.registerTask('default', ['clean', 'concat', 'uglify:dist', 'uglify:individual']);
 };
